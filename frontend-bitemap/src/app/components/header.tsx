@@ -20,6 +20,11 @@ const Header = () => {
     setIsCreatingAccount(true);  // Set to 'Create Account' mode
   };
 
+  // Function to switch to 'Sign In' form
+  const handleLogInClick = () => {
+    setIsCreatingAccount(false); // Set to 'Sign In' mode
+  };
+
   return (
     <>
       {/* Header section with a logo and 'Get Started' button */}
@@ -64,7 +69,7 @@ const Header = () => {
               </div>
 
               {/* Modal Form content */}
-              <form >
+              <form>
                 {isCreatingAccount ? (
                   <>
                     {/* First Name and Last Name fields, shown only if the user is in 'Create Account' mode */}
@@ -107,7 +112,7 @@ const Header = () => {
                 <div className="mb-4 flex justify-between items-center">
                   <button
                     type="submit"
-                    className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 "
+                    className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
                   >
                     {isCreatingAccount ? "Create Account" : "Sign In"}
                   </button>
@@ -115,33 +120,41 @@ const Header = () => {
               </form>
 
               {/* Conditional rendering for 'Create Account' option */}
-              {!isCreatingAccount && (
-                <>
-                  {/* Divider with 'or' between two <hr> lines */}
-                  <div className="flex items-center my-6">
-                    <hr className="flex-grow border-gray-300 border-t-2" />
-                    <span className="mx-4 text-gray-500">or</span>
-                    <hr className="flex-grow border-gray-300 border-t-2" />
-                  </div>
+              <div>
+                {/* Divider with 'or' between two <hr> lines */}
+                <div className="flex items-center my-6">
+                  <hr className="flex-grow border-gray-300 border-t-2" />
+                  <span className="mx-4 text-gray-500">or</span>
+                  <hr className="flex-grow border-gray-300 border-t-2" />
+                </div>
 
-                  {/* Button to switch to the 'Create Account' form */}
-                  <div className="mt-4">
-                    <button
-                      onClick={handleCreateAccountClick}
-                      className="w-full text-green-600 border border-green-600 px-4 py-2 rounded hover:bg-green-100"
-                    >
-                      Create an Account
-                    </button>
+                {/* Button to switch to 'Create Account' form */}
+                {!isCreatingAccount && (
+                  <button
+                    onClick={handleCreateAccountClick}
+                    className="w-full text-green-600 border border-green-600 px-4 py-2 rounded hover:bg-green-100"
+                  >
+                    Create an Account
+                  </button>
+                )}
 
-                    {/* Optional 'Continue as Guest' button */}
-                    <button
-                      className="w-full mt-2 text-gray-600 px-4 py-2 rounded hover:bg-gray-100"
-                    >
-                      Continue as Guest
-                    </button>
-                  </div>
-                </>
-              )}
+                {/* Button to switch to 'Log In' form */}
+                {isCreatingAccount && (
+                  <button
+                    onClick={handleLogInClick}
+                    className="w-full text-green-600 border border-green-600 px-4 py-2 rounded hover:bg-green-100 mt-2"
+                  >
+                    Log In
+                  </button>
+                )}
+
+                {/* Optional 'Continue as Guest' button */}
+                <button
+                  className="w-full mt-2 text-gray-600 px-4 py-2 rounded hover:bg-gray-100"
+                >
+                  Continue as Guest
+                </button>
+              </div>
             </div>
           </div>
         </>
