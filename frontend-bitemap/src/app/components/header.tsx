@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <>
       {/* Header section with a logo and 'Get Started' button */}
-      <header className="flex justify-between items-center p-4 bg-gray-100 shadow-md">
+      <header className="flex justify-between items-center p-4" style={{ backgroundColor: "#FFFFF4" }}>
         <div className="logo">
           <img src="/logo.png" alt="Logo" className="h-10" />
         </div>
@@ -37,6 +37,8 @@ const Header = () => {
           </button>
         </div>
       </header>
+
+      <hr style={{ borderColor: "#01490C", borderWidth: "0.5px" }} />
 
       {/* Modal content, shown only when isModalOpen is true */}
       {isModalOpen && (
