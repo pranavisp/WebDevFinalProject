@@ -8,6 +8,7 @@ const containerStyle = {
   height: '400px' // Adjust height as needed
 };
 
+// Function to generate random coordinates
 const getRandomCoordinates = () => {
   return {
     lat: Math.random() * 180 - 90,
@@ -28,7 +29,17 @@ const HomeMaps = () => {
   }, []);
 
   return (
-    <div className="w-1/3 p-4"> {/* Aligning the map to the left side */}
+    <div 
+      className="w-1/3 p-4" 
+      style=
+      {{ 
+        width: '700px',
+        border: '4px solid #B91748', // Set border color and width
+        marginLeft: '60px', // Shift left
+        marginRight: 'auto', // Auto margin on the right
+        marginTop: '60px', // Add top margin
+      }} 
+    >
       
       <h2 className="text-center text-lg font-bold mb-4">Map Preview</h2>
 

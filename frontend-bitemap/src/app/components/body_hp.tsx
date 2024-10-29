@@ -26,7 +26,7 @@ const containerStyle: React.CSSProperties = {
   flexDirection: 'column', // Stack circles vertically
   alignItems: 'flex-end', // Align items to the right
   marginTop: 50, // Use number instead of string
-  marginRight: 150, // Use number instead of string
+  marginRight: 80, // Use number instead of string
   gap: 20, // Space between circles
 };
 
