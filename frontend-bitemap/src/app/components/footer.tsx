@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="text-gray-800 py-2 border-t border-gray-300 fixed bottom-0 left-0 w-full" style={{ backgroundColor: "#FFFFF4", borderTop: "1px solid #01490C"}}>
+    <footer className="text-gray-800 py-2 border-t border-gray-300 fixed bottom-0 left-0 w-full" style={{ backgroundColor: "#FFFFE6", borderTop: "1px solid #01490C"}}>
       <div className="container mx-auto flex justify-between ">
         
         {/* Left Section: Contact Us in one line */}

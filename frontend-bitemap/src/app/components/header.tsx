@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <>
       {/* Header section with a logo and 'Get Started' button */}
-      <header className="flex justify-between items-center p-4" style={{ backgroundColor: "#FFFFF4" }}>
+      <header className="flex justify-between items-center p-4" style={{ backgroundColor: "#FFFFE6" }}>
         <div className="logo">
           <img src="/logo.png" alt="Logo" className="h-10" />
         </div>
