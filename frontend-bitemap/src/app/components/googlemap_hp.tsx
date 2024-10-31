@@ -4,11 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '100%', // Map will fill the width of its container
-  height: '400px' // Adjust height as needed
+  width: '100%', 
+  height: '400px' // Adjust the height as needed
 };
 
-// Function to generate random coordinates
+// Function to generate random coordinates (optional)
 const getRandomCoordinates = () => {
   return {
     lat: Math.random() * 180 - 90,
@@ -18,12 +18,8 @@ const getRandomCoordinates = () => {
 
 const HomeMaps = () => {
   const [center, setCenter] = useState(getRandomCoordinates());
-  const [showDynamicMap, setShowDynamicMap] = useState(false); // Toggle for dynamic/static map
 
-  // Google Static Maps URL
-  const googleMapsStaticUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${center.lat},${center.lng}&zoom=12&size=600x300&maptype=roadmap&markers=color:red%7Clabel:S%7C${center.lat},${center.lng}&key=YOUR_GOOGLE_MAPS_API_KEY`;
-
-  // Update center coordinates every time the component mounts
+  // Optional: Update center coordinates every time the component mounts
   useEffect(() => {
     setCenter(getRandomCoordinates());
   }, []);
@@ -31,45 +27,25 @@ const HomeMaps = () => {
   return (
     <div 
       className="w-1/3 p-4" 
-      style=
-      {{ 
+      style={{
         width: '700px',
-        border: '4px solid #B91748', // Set border color and width
-        marginLeft: '60px', // Shift left
-        marginRight: 'auto', // Auto margin on the right
-        marginTop: '60px', // Add top margin
+        border: '4px solid #B91748',
+        marginLeft: '60px',
+        marginRight: 'auto',
+        marginTop: '60px',
       }} 
     >
-      
-      <h2 className="text-center text-lg font-bold mb-4">Map Preview</h2>
-
-      {/* Toggle between static and dynamic map */}
-      {!showDynamicMap ? (
-        <div>
-          {/* Display Static Map Image */}
-          <img
-            src={googleMapsStaticUrl}
-            alt="Static Location Map"
-            className="mx-auto border rounded shadow"
-          />
-          <button
-            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mx-auto block"
-            onClick={() => setShowDynamicMap(true)} // Show dynamic map on click
-          >
-            Show Interactive Map
-          </button>
-        </div>
-      ) : (
-        <LoadScript googleMapsApiKey="AIzaSyBip4gPnevZ9apyfj2jzv8Ff9WpVwXThs">
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={10}
-          >
-            {/* Add any markers or other map features here */}
-          </GoogleMap>
-        </LoadScript>
-      )}
+      <h2 className="text-center text-lg font-bold mb-4">Interactive Map</h2>
+      <LoadScript googleMapsApiKey="AIzaSyBip4g_PnevZ9apyfj2jzv8Ff9WpVwXThs">
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={10}
+          onLoad={() => console.log("Map loaded successfully")} // Log map load status
+        >
+          {/* Add any markers or other features here */}
+        </GoogleMap>
+      </LoadScript>
     </div>
   );
 };
