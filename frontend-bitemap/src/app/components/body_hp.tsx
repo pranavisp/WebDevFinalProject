@@ -33,7 +33,7 @@ const containerStyle: React.CSSProperties = {
 const Body: React.FC = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <HomeMaps />
+      {/*<HomeMaps />*/}
 
       {/* Circle Section */}
       <div style={containerStyle}>

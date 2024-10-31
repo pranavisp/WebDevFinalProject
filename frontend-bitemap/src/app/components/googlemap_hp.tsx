@@ -5,23 +5,26 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%', 
-  height: '400px' // Adjust the height as needed
+  height: '520px' // Adjust the height as needed
 };
 
-// Function to generate random coordinates (optional)
-const getRandomCoordinates = () => {
+const getRandomLandCoordinates = () => {
+  const latRange = [25, 49];     // Latitude range for North America
+  const lngRange = [-125, -66];  // Longitude range for North America
+
   return {
-    lat: Math.random() * 180 - 90,
-    lng: Math.random() * 360 - 180
+    lat: Math.random() * (latRange[1] - latRange[0]) + latRange[0],
+    lng: Math.random() * (lngRange[1] - lngRange[0]) + lngRange[0]
   };
 };
 
+
 const HomeMaps = () => {
-  const [center, setCenter] = useState(getRandomCoordinates());
+  const [center, setCenter] = useState(getRandomLandCoordinates());
 
   // Optional: Update center coordinates every time the component mounts
   useEffect(() => {
-    setCenter(getRandomCoordinates());
+    setCenter(getRandomLandCoordinates());
   }, []);
 
   return (
@@ -35,7 +38,6 @@ const HomeMaps = () => {
         marginTop: '60px',
       }} 
     >
-      <h2 className="text-center text-lg font-bold mb-4">Interactive Map</h2>
       <LoadScript googleMapsApiKey="AIzaSyBip4g_PnevZ9apyfj2jzv8Ff9WpVwXThs">
         <GoogleMap
           mapContainerStyle={containerStyle}
