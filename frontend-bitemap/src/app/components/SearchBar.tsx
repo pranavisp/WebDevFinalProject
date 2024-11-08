@@ -21,7 +21,7 @@ const SearchBar: React.FC = () => {
   return (
     <div style={styles.searchBarContainer}>
       <button onClick={handleSearch} style={styles.searchButton}>
-        <FaSearch size={18} />
+        <FaSearch size={22} />
       </button>
       <input
         type="text"
@@ -31,7 +31,7 @@ const SearchBar: React.FC = () => {
         style={styles.input}
       />
       <button onClick={clearInput} style={styles.clearButton}>
-        <FaTimes size={16} color="black" />
+        <FaTimes size={18} color="black" />
       </button>
     </div>
   );
@@ -41,11 +41,11 @@ const styles = {
     searchBarContainer: {
       display: 'flex',
       alignItems: 'center',
-      border: '1px solid #000',
+      border: '1px solid #014907',
       padding: '2px',
       backgroundColor: '#FFFFE6',
       width: '80%',
-      maxWidth: '600px',
+      maxWidth: '952px',
       margin: '20px auto',
     },
     searchButton: {
