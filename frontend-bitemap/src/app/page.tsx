@@ -8,10 +8,9 @@ import NewBody from "./components/newbody_hp";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/*<Header />*/}
-      <NewHeader/>
-      <NewBody/>
-      {/*<Body/>*/}
+      <Header />
+      
+      <Body/>
       <Footer />
     </div>
   );

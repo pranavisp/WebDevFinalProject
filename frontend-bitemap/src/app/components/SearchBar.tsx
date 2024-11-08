@@ -21,7 +21,7 @@ const SearchBar: React.FC = () => {
   return (
     <div style={styles.searchBarContainer}>
       <button onClick={handleSearch} style={styles.searchButton}>
-        <FaSearch size={22} />
+        <FaSearch size={22} color="black"/>
       </button>
       <input
         type="text"
@@ -64,6 +64,7 @@ const styles = {
       fontSize: '16px',
       padding: '8px',
       backgroundColor: '#FFFFE6',
+      color: '#000000',
     },
     clearButton: {
       background: 'none',
