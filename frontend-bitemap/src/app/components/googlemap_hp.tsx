@@ -35,7 +35,7 @@ const HomeMaps = () => {
         border: '4px solid #B91748',
         marginLeft: '60px',
         marginRight: 'auto',
-        marginTop: '60px',
+        marginTop: '30px',
       }} 
     >
       <LoadScript googleMapsApiKey="AIzaSyBip4g_PnevZ9apyfj2jzv8Ff9WpVwXThs">
