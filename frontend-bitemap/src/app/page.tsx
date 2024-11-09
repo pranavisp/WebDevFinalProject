@@ -19,10 +19,15 @@ export default function Home() {
     setIsGuest(true);
   };
 
+  const handleLogOut = () => {
+    setIsSignedIn(false);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header remains the same if the user is a guest; changes only when signed in */}
-      {isSignedIn ? <NewHeader /> : <Header onSignIn={handleSignIn} onContinueAsGuest={handleContinueAsGuest} />}
+      {isSignedIn ? <NewHeader onLogOut={handleLogOut} /> : <Header onSignIn={handleSignIn} onContinueAsGuest={handleContinueAsGuest} />}
+      
 
       {/* Render NewBody if user is signed in or a guest */}
       {(isSignedIn || isGuest) ? <NewBody /> : <Body />}

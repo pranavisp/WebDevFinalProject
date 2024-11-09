@@ -11,6 +11,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onContinueAsGuest }) => {
   const [isCreatingAccount, setIsCreatingAccount] = useState(false);
 
 
+  
   const handleContinueAsGuestClick = () => {
     onContinueAsGuest(); // Trigger parent handler to open the location form
     toggleModal(); // Close the Get Started modal

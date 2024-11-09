@@ -1,14 +1,15 @@
 "use client";
 import profileUserImage from '../images/profile-user.png';
 import Image from 'next/image';  
-
 import React, { useState } from 'react';
 
-const NewHeader = () => {
-  // State to control dropdown visibility
+interface NewHeaderProps {
+  onLogOut: () => void;
+}
+
+const NewHeader: React.FC<NewHeaderProps> = ({ onLogOut }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Toggle the dropdown visibility
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -36,8 +37,9 @@ const NewHeader = () => {
           {/* Dropdown Menu */}
           {isDropdownOpen && (
             <div 
-              className="absolute right-0 mt-2 bg-green-100 border border-green-500 rounded shadow-lg z-10" style={{ width: '90px' }}
-              onClick={e => e.stopPropagation()} // Prevent closing when clicking inside the dropdown
+              className="absolute right-0 mt-2 bg-green-100 border border-green-500 rounded shadow-lg z-10"
+              style={{ width: '90px' }}
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the dropdown
             >
               <div className="p-2 hover:bg-green-200 cursor-pointer text-black text-center">
                 Recent 
@@ -45,7 +47,10 @@ const NewHeader = () => {
               <div className="p-2 hover:bg-green-200 cursor-pointer text-black text-center">
                 Saved
               </div>
-              <div className="p-2 hover:bg-green-200 cursor-pointer text-red-600 text-center">
+              <div 
+                className="p-2 hover:bg-green-200 cursor-pointer text-red-600 text-center"
+                onClick={onLogOut} // Call onLogOut when clicked
+              >
                 Log Out
               </div>
             </div>
