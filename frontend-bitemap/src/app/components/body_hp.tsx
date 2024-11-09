@@ -25,33 +25,40 @@ const containerStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column', 
   alignItems: 'flex-end',
-  marginTop: 50, 
+  marginTop: 30, 
   marginRight: 80, 
   gap: 20, 
 };
 
 const Body: React.FC = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <HomeMaps/>
-      <div style={containerStyle}>
-        <div style={circleStyle} className="circle1">
-          <Image
-            src={Image1} 
-            alt="Taichi"
-            layout="fill" 
-            objectFit="cover" 
-          />
-        </div> 
+    <div style={{ display: 'flex', justifyContent: 'space-between', flexDirection:'column' }}>
 
-        <div style={{ ...circleStyle, marginRight: '250px' }} className="circle2"> 
-          <Image
-            src={Image2} 
-            alt="Canes"
-            layout="fill" 
-            objectFit="cover" 
-          />
-        </div> 
+       <div style={{  padding: ' 10px', textAlign: 'center'}}>
+       <p style={{ fontSize: '40px' }}>Get started with BiteMap!</p>
+       </div>
+
+       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        {/* <HomeMaps/> */}
+        <div style={containerStyle}>
+          <div style={circleStyle} className="circle1">
+            <Image
+              src={Image1} 
+              alt="Taichi"
+              layout="fill" 
+              objectFit="cover" 
+            />
+          </div> 
+
+          <div style={{ ...circleStyle, marginRight: '250px' }} className="circle2"> 
+            <Image
+              src={Image2} 
+              alt="Canes"
+              layout="fill" 
+              objectFit="cover" 
+            />
+          </div> 
+        </div>
       </div>
     </div>
   );
