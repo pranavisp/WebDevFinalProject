@@ -1,0 +1,21 @@
+.savedContainer {
+    padding-top: 25px;
+    padding-left: 50px;
+  }
+  
+  .savedTitle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .iconImage {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px; /* Space between the icon and text */
+  }
+  
+  .savedText {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
