@@ -9,9 +9,13 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ onSignIn, onContinueAsGuest }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCreatingAccount, setIsCreatingAccount] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
 
-
-  
   const handleContinueAsGuestClick = () => {
     onContinueAsGuest(); // Trigger parent handler to open the location form
     toggleModal(); // Close the Get Started modal
@@ -32,8 +36,32 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onContinueAsGuest }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check if all required fields are filled
+    if (isCreatingAccount) {
+      const { firstName, lastName, email, password } = formData;
+      if (!firstName || !lastName || !email || !password) {
+        alert('Please fill in all fields.');
+        return;
+      }
+    } else {
+      const { email, password } = formData;
+      if (!email || !password) {
+        alert('Please fill in all fields.');
+        return;
+      }
+    }
+
     onSignIn();
     toggleModal(); // Close the modal after signing in
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
 
   return (
@@ -76,23 +104,51 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onContinueAsGuest }) => {
                   <>
                     <div className="mb-4">
                       <label className="block text-gray-700 mb-2">First Name</label>
-                      <input type="text" className="w-full border border-gray-300 p-2 rounded-2xl" />
+                      <input
+                        type="text"
+                        name="firstName"
+                        className="w-full border border-gray-300 p-2 rounded-2xl"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
+                      />
                     </div>
                     <div className="mb-4">
                       <label className="block text-gray-700 mb-2">Last Name</label>
-                      <input type="text" className="w-full border border-gray-300 p-2 rounded-2xl" />
+                      <input
+                        type="text"
+                        name="lastName"
+                        className="w-full border border-gray-300 p-2 rounded-2xl"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        required
+                      />
                     </div>
                   </>
                 ) : null}
 
                 <div className="mb-4">
                   <label className="block text-gray-700 mb-2">Email</label>
-                  <input type="email" className="w-full border border-gray-300 p-2 rounded-2xl" />
+                  <input
+                    type="email"
+                    name="email"
+                    className="w-full border border-gray-300 p-2 rounded-2xl"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
 
                 <div className="mb-4">
                   <label className="block text-gray-700 mb-2">Password</label>
-                  <input type="password" className="w-full border border-gray-300 p-2 rounded-2xl" />
+                  <input
+                    type="password"
+                    name="password"
+                    className="w-full border border-gray-300 p-2 rounded-2xl"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
 
                 <div className="mb-4 flex justify-between items-center">
