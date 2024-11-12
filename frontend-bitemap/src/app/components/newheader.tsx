@@ -2,6 +2,7 @@
 import profileUserImage from '../images/profile-user.png';
 import Image from 'next/image';  
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation'; 
 
 interface NewHeaderProps {
   onLogOut: () => void;
@@ -9,9 +10,18 @@ interface NewHeaderProps {
 
 const NewHeader: React.FC<NewHeaderProps> = ({ onLogOut }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const router = useRouter(); 
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleSavedClick = () => {
+    router.push('/saved');
+  };
+
+  const handleRecentClick = () => {
+    router.push('/recent');
   };
 
   return (
@@ -41,15 +51,21 @@ const NewHeader: React.FC<NewHeaderProps> = ({ onLogOut }) => {
               style={{ width: '90px' }}
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the dropdown
             >
-              <div className="p-2 hover:bg-green-200 cursor-pointer text-black text-center">
+              <div 
+                className="p-2 hover:bg-green-200 cursor-pointer text-black text-center"
+                onClick={handleRecentClick} 
+              >
                 Recent 
               </div>
-              <div className="p-2 hover:bg-green-200 cursor-pointer text-black text-center">
+              <div 
+                className="p-2 hover:bg-green-200 cursor-pointer text-black text-center"
+                onClick={handleSavedClick} 
+              >
                 Saved
               </div>
               <div 
                 className="p-2 hover:bg-green-200 cursor-pointer text-red-600 text-center"
-                onClick={onLogOut} // Call onLogOut when clicked
+                onClick={onLogOut}
               >
                 Log Out
               </div>

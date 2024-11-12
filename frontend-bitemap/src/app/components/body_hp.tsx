@@ -35,11 +35,11 @@ const Body: React.FC = () => {
     <div style={{ display: 'flex', justifyContent: 'space-between', flexDirection:'column' }}>
 
        <div style={{  paddingTop: ' 10px', textAlign: 'center'}}>
-       <p style={{ fontSize: '40px' }}>Get started with BiteMap!</p>
+       <p style={{ fontSize: '40px', color:'black'}}>Get started with BiteMap!</p>
        </div>
 
        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <HomeMaps/> 
+         {/* <HomeMaps/> */}
         <div style={containerStyle}>
           <div style={circleStyle} className="circle1">
             <Image
