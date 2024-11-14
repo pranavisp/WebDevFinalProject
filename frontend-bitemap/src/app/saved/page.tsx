@@ -8,6 +8,7 @@ import Body from '../components/body_hp';
 import NewHeader from "../components/newheader";
 import NewBody from "../components/newbody_hp";
 import Saved from "../components/Saved";
+import BackArrow from "../components/BackArrow"
 
 export default function Home() {
   const [isSignedIn, setIsSignedIn] = useState(true);
@@ -47,6 +48,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {<NewHeader onLogOut={handleLogOut} />}
+
+      <BackArrow/>
       
       {<Saved restaurants={sampleRestaurants} />}
 
