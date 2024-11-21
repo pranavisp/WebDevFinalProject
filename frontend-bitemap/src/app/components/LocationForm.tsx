@@ -21,19 +21,11 @@ const LocationForm = () => {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex justify-center items-center bg-gray-800 bg-opacity-50">
           <div className="bg-white p-8 rounded shadow-lg w-1/3 relative">
-            {/* Close Button */}
-            <div className="flex justify-end">
-              <button
-                onClick={handleClose}
-                className="text-green-600 hover:underline hover:text-red-500"
-              >
-                Close
-              </button>
-            </div>
+            
 
             {/* Form Content */}
             <form onSubmit={handleSubmit}>
-              <h2 className="text-xl font-semibold mb-4 text-center">
+              <h2 className="text-xl font-semibold mb-4 text-center text-black">
                 Enter your current location.
               </h2>
 
