@@ -51,6 +51,7 @@ const NewHeader: React.FC<NewHeaderProps> = ({ onLogOut }) => {
               style={{ width: '90px' }}
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the dropdown
             >
+              
               <div 
                 className="p-2 hover:bg-green-200 cursor-pointer text-black text-center"
                 onClick={handleRecentClick} 
