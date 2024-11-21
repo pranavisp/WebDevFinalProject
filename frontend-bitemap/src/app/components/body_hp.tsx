@@ -39,7 +39,7 @@ const Body: React.FC = () => {
        </div>
 
        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <HomeMaps/> 
+         <HomeMaps/> 
         <div style={containerStyle}>
           <div style={circleStyle} className="circle1">
             <Image
