@@ -3,7 +3,6 @@ import mongoose, {Schema, Document, Model} from "mongoose";
 interface IItem extends Document {
     email: string;
     password: string;
-    id: string;
 }
 
 const userSchema = new Schema<IItem>({
