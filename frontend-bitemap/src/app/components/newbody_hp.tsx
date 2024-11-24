@@ -15,7 +15,7 @@ const NewBody: React.FC = () => {
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
-      <LocationForm />
+      {/* <LocationForm /> */}
       <HomeMapsNew searchedPlace={searchedPlace} />
     </div>
   );
