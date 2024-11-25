@@ -1,9 +1,26 @@
 import React, { useState } from 'react';
+import { signIn, signOut } from "@/auth";
 
 // Define the type for the props
 interface HeaderProps {
   onSignIn: () => void;
   onContinueAsGuest: () => void;
+}
+
+export async function doCredentialLogin(formData: FormData): Promise<any> {
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+
+  try {
+    const response = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    })
+    return response;
+  } catch (error: any) {
+    throw error;
+  }
 }
 
 const Header: React.FC<HeaderProps> = ({ onSignIn, onContinueAsGuest }) => {
