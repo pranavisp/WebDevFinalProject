@@ -3,14 +3,21 @@ import profileUserImage from '../images/profile-user.png';
 import Image from 'next/image';  
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; 
+import { auth, signOut } from '@/auth';
 
 interface NewHeaderProps {
   onLogOut: () => void;
 }
 
+export async function doLogout() {
+  await signOut({redirectTo: "/"});
+}
+
 const NewHeader: React.FC<NewHeaderProps> = ({ onLogOut }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const router = useRouter(); 
+  
+
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
